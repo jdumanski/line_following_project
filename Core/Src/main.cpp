@@ -96,10 +96,19 @@ void USART_Transmit(UART_HandleTypeDef *huart, uint8_t *TextString) {
 
 //return frequency
 //uses low period
-int calcPeriod(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){
-	uint8_t prev = 2;
 
-	//0.00001sec per tick bc hclock is 80MHz - we use prescale factor of 800, so tim11 is 80MHz/800 = 100KHz -> period of tim11 = 1/100000Hz = 0.00001 sec
+int calcTotalTime(int t1, int t0, int tMax){
+	if(t0 <= t1){
+		return t1-t0;
+	}
+	int returnVal = t1 + tMax - t0;
+	return returnVal;
+}
+
+int calcPeriod(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){
+	uint8_t prev = 2; //prev output value (initially set as 2 bc output values can either be 0 or 1
+
+	//time per count is 0.00001 sec
 	const int MAX_TIME = 65535;
 	bool started = false;
 
@@ -112,13 +121,12 @@ int calcPeriod(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){
 			started = true;
 			t0 = __HAL_TIM_GET_COUNTER(&htim11);
 		}else if(started && output==GPIO_PIN_SET && prev==0){
-			int tcurr = __HAL_TIM_GET_COUNTER(&htim11);
-			return tcurr-t0;
+			return calcTotalTime(__HAL_TIM_GET_COUNTER(&htim11), t0, MAX_TIME);
 		}
 		prev = output;
-	}while(__HAL_TIM_GET_COUNTER(&htim11)-t0 < MAX_TIME);
+	}while(calcTotalTime(__HAL_TIM_GET_COUNTER(&htim11), t0, MAX_TIME) < MAX_TIME || !started); //if we have started (encountered falling edge)
 
-	return -1;
+	return -1; //if timer counts beyond max val (shouldn't happen -> max val is 0.65535 sec and max freq of output is 2Hz which has half period (since we only measure half period - time when signal is continuously low within a period) of 0.25 sec)
 }
 
 Color normalizeToRGB(int r, int g, int b){
@@ -185,9 +193,6 @@ int main(void) {
 	s3.Speed = GPIO_SPEED_FREQ_MEDIUM;
 	HAL_GPIO_Init(GPIOA, &s3);
 
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET); //s3
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); //s2
-
 	//by default, s2 and s3 are zero, so we get freq of red as output
 
 	GPIO_InitTypeDef s1;
@@ -204,10 +209,11 @@ int main(void) {
 	s0.Speed = GPIO_SPEED_FREQ_MEDIUM;
 	HAL_GPIO_Init(GPIOB, &s0);
 
-	//set output frequency scaling to 2%
+	//set output frequency scaling to 2% (s0 = 1, s1 = 1)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET); //s1
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET); //s0
 
+	//0.00001sec per tick bc hclock is 80MHz - we use prescale factor of 800 (set below), so tim11 is 80MHz/800 = 100KHz -> period of tim11 = 1/100000Hz = 0.00001 sec -> therefore each count in 0.00001 sec
 	const double TIMER_PERIOD = 0.00001;
 	while (1) {
 

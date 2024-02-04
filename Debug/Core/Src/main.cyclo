@@ -2,15 +2,16 @@ gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
 basic_string.h:6609:3:std::string std::__cxx11::to_string(int)	2
 main.cpp:78:2:Color::Color(uint8_t, uint8_t, uint8_t)	1
 main.cpp:84:6:void USART_Transmit(UART_HandleTypeDef*, uint8_t*)	2
-main.cpp:99:5:int calcPeriod(GPIO_TypeDef*, uint16_t)	7
+main.cpp:100:5:int calcTotalTime(int, int, int)	2
+main.cpp:108:5:int calcPeriod(GPIO_TypeDef*, uint16_t)	9
 stl_algobase.h:254:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = int]	2
-main.cpp:124:7:Color normalizeToRGB(int, int, int)	4
-main.cpp:135:5:int main()	1
-main.cpp:256:6:void SystemClock_Config()	3
-main.cpp:300:13:void MX_USART2_UART_Init()	2
-main.cpp:331:13:void MX_GPIO_Init()	1
-main.cpp:362:13:void MX_TIM11_Init()	2
-main.cpp:396:6:void Error_Handler()	1
+main.cpp:133:7:Color normalizeToRGB(int, int, int)	4
+main.cpp:144:5:int main()	1
+main.cpp:263:6:void SystemClock_Config()	3
+main.cpp:307:13:void MX_USART2_UART_Init()	2
+main.cpp:338:13:void MX_GPIO_Init()	1
+main.cpp:369:13:void MX_TIM11_Init()	2
+main.cpp:403:6:void Error_Handler()	1
 charconv.h:47:5:constexpr unsigned int std::__detail::__to_chars_len(_Tp, int) [with _Tp = unsigned int]	5
 charconv.h:72:5:void std::__detail::__to_chars_10_impl(char*, unsigned int, _Tp) [with _Tp = unsigned int]	3
 basic_string.h:6143:5:std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	1
