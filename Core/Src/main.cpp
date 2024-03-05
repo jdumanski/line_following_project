@@ -172,36 +172,40 @@ int main(void) {
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 
-	GPIO_InitTypeDef freq; //color sensor frequency output
-	freq.Pin = GPIO_PIN_0;
+	// PB4
+	GPIO_InitTypeDef freq; // color sensor frequency output
+	freq.Pin = GPIO_PIN_4;
 	freq.Mode = GPIO_MODE_INPUT;
 	freq.Pull = GPIO_NOPULL;
 	freq.Speed = GPIO_SPEED_FREQ_MEDIUM;
-	HAL_GPIO_Init(GPIOA, &freq);
+	HAL_GPIO_Init(GPIOB, &freq);
 
+	// PB3
 	GPIO_InitTypeDef s2;
-	s2.Pin = GPIO_PIN_5;
+	s2.Pin = GPIO_PIN_3;
 	s2.Mode = GPIO_MODE_OUTPUT_PP;
 	s2.Pull = GPIO_NOPULL;
 	s2.Speed = GPIO_SPEED_FREQ_MEDIUM;
-	HAL_GPIO_Init(GPIOA, &s2);
+	HAL_GPIO_Init(GPIOB, &s2);
 
+	// PB5
 	GPIO_InitTypeDef s3;
-	s3.Pin = GPIO_PIN_4;
+	s3.Pin = GPIO_PIN_5;
 	s3.Mode = GPIO_MODE_OUTPUT_PP;
 	s3.Pull = GPIO_NOPULL;
 	s3.Speed = GPIO_SPEED_FREQ_MEDIUM;
-	HAL_GPIO_Init(GPIOA, &s3);
+	HAL_GPIO_Init(GPIOB, &s3);
 
 	//by default, s2 and s3 are zero, so we get freq of red as output
-
+	// PC1
 	GPIO_InitTypeDef s1;
 	s1.Pin = GPIO_PIN_1;
 	s1.Mode = GPIO_MODE_OUTPUT_PP;
 	s1.Pull = GPIO_NOPULL;
 	s1.Speed = GPIO_SPEED_FREQ_MEDIUM;
-	HAL_GPIO_Init(GPIOA, &s1);
+	HAL_GPIO_Init(GPIOC, &s1);
 
+	// PB0
 	GPIO_InitTypeDef s0;
 	s0.Pin = GPIO_PIN_0;
 	s0.Mode = GPIO_MODE_OUTPUT_PP;
@@ -209,7 +213,7 @@ int main(void) {
 	s0.Speed = GPIO_SPEED_FREQ_MEDIUM;
 	HAL_GPIO_Init(GPIOB, &s0);
 
-	//set output frequency scaling to 2% (s0 = 1, s1 = 1)
+	//set output frequency scaling to 2% (s0 = 0, s1 = 1)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET); //s1
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET); //s0
 
@@ -235,11 +239,14 @@ int main(void) {
 		int bluePeriod = calcPeriod(GPIOA, GPIO_PIN_0);
 		int blueFreq = 1.0 / (2 * bluePeriod * TIMER_PERIOD);
 
-		//RGB OK in function, but when it gets to main the values are all weird - why?? - try doing caluclatuons in main instead of fucniton and see what happens
 		Color color = normalizeToRGB(redFreq, greenFreq, blueFreq);
 		std::string s = "(" + std::to_string(color.r) + ", " + std::to_string(color.g) + ", " + std::to_string(color.b) + ")";
 		const char* c = s.c_str();
 		USART_Transmit(&huart2, (uint8_t*)c);
+
+
+
+		//Motor_A_Forward(50);
 		//uint8_t colorOutput = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
 		//uint8_t colorOuputPrintable = colorOutput + 48;
 		//uint8_t *s = &colorOuputPrintable;

@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020070  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000147fb  00000000  00000000  000200a0  2**0
+ 12 .debug_info   000147ec  00000000  00000000  000200a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001e99  00000000  00000000  0003489b  2**0
+ 13 .debug_abbrev 00001e99  00000000  00000000  0003488c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000b38  00000000  00000000  00036738  2**3
+ 14 .debug_aranges 00000b38  00000000  00000000  00036728  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000aa0  00000000  00000000  00037270  2**3
+ 15 .debug_ranges 00000aa0  00000000  00000000  00037260  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001a591  00000000  00000000  00037d10  2**0
+ 16 .debug_macro  0001a591  00000000  00000000  00037d00  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000ca33  00000000  00000000  000522a1  2**0
+ 17 .debug_line   0000ca30  00000000  00000000  00052291  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0009d3c8  00000000  00000000  0005ecd4  2**0
+ 18 .debug_str    0009d3bc  00000000  00000000  0005ecc1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000fc09c  2**0
+ 19 .comment      00000050  00000000  00000000  000fc07d  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004888  00000000  00000000  000fc0ec  2**2
+ 20 .debug_frame  00004888  00000000  00000000  000fc0d0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1234,151 +1234,150 @@ int calcTotalTime(int t1, int t0, int tMax){
 
 int calcPeriod(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){
  8000e44:	b580      	push	{r7, lr}
- 8000e46:	b088      	sub	sp, #32
+ 8000e46:	b086      	sub	sp, #24
  8000e48:	af00      	add	r7, sp, #0
  8000e4a:	6078      	str	r0, [r7, #4]
  8000e4c:	460b      	mov	r3, r1
  8000e4e:	807b      	strh	r3, [r7, #2]
 	uint8_t prev = 2; //prev output value (initially set as 2 bc output values can either be 0 or 1
  8000e50:	2302      	movs	r3, #2
- 8000e52:	77fb      	strb	r3, [r7, #31]
+ 8000e52:	75fb      	strb	r3, [r7, #23]
 
+	//time per count is 0.00001 sec
 	const int MAX_TIME = 65535;
  8000e54:	f64f 73ff 	movw	r3, #65535	; 0xffff
- 8000e58:	617b      	str	r3, [r7, #20]
+ 8000e58:	60fb      	str	r3, [r7, #12]
 	bool started = false;
  8000e5a:	2300      	movs	r3, #0
- 8000e5c:	77bb      	strb	r3, [r7, #30]
+ 8000e5c:	75bb      	strb	r3, [r7, #22]
 
 	HAL_TIM_Base_Start(&htim11);
- 8000e5e:	4829      	ldr	r0, [pc, #164]	; (8000f04 <_Z10calcPeriodP12GPIO_TypeDeft+0xc0>)
+ 8000e5e:	4828      	ldr	r0, [pc, #160]	; (8000f00 <_Z10calcPeriodP12GPIO_TypeDeft+0xbc>)
  8000e60:	f001 fed0 	bl	8002c04 <HAL_TIM_Base_Start>
 	int t0 = __HAL_TIM_GET_COUNTER(&htim11);
- 8000e64:	4b27      	ldr	r3, [pc, #156]	; (8000f04 <_Z10calcPeriodP12GPIO_TypeDeft+0xc0>)
+ 8000e64:	4b26      	ldr	r3, [pc, #152]	; (8000f00 <_Z10calcPeriodP12GPIO_TypeDeft+0xbc>)
  8000e66:	681b      	ldr	r3, [r3, #0]
  8000e68:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8000e6a:	61bb      	str	r3, [r7, #24]
-
-	int compareTime = 0;
- 8000e6c:	2300      	movs	r3, #0
- 8000e6e:	613b      	str	r3, [r7, #16]
+ 8000e6a:	613b      	str	r3, [r7, #16]
 
 	do{
 		GPIO_PinState output = HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
- 8000e70:	887b      	ldrh	r3, [r7, #2]
- 8000e72:	4619      	mov	r1, r3
- 8000e74:	6878      	ldr	r0, [r7, #4]
- 8000e76:	f001 f9ab 	bl	80021d0 <HAL_GPIO_ReadPin>
- 8000e7a:	4603      	mov	r3, r0
- 8000e7c:	73fb      	strb	r3, [r7, #15]
+ 8000e6c:	887b      	ldrh	r3, [r7, #2]
+ 8000e6e:	4619      	mov	r1, r3
+ 8000e70:	6878      	ldr	r0, [r7, #4]
+ 8000e72:	f001 f9ad 	bl	80021d0 <HAL_GPIO_ReadPin>
+ 8000e76:	4603      	mov	r3, r0
+ 8000e78:	72fb      	strb	r3, [r7, #11]
 		if(output==GPIO_PIN_RESET && prev==1){
- 8000e7e:	7bfb      	ldrb	r3, [r7, #15]
- 8000e80:	2b00      	cmp	r3, #0
- 8000e82:	d109      	bne.n	8000e98 <_Z10calcPeriodP12GPIO_TypeDeft+0x54>
- 8000e84:	7ffb      	ldrb	r3, [r7, #31]
- 8000e86:	2b01      	cmp	r3, #1
- 8000e88:	d106      	bne.n	8000e98 <_Z10calcPeriodP12GPIO_TypeDeft+0x54>
+ 8000e7a:	7afb      	ldrb	r3, [r7, #11]
+ 8000e7c:	2b00      	cmp	r3, #0
+ 8000e7e:	d109      	bne.n	8000e94 <_Z10calcPeriodP12GPIO_TypeDeft+0x50>
+ 8000e80:	7dfb      	ldrb	r3, [r7, #23]
+ 8000e82:	2b01      	cmp	r3, #1
+ 8000e84:	d106      	bne.n	8000e94 <_Z10calcPeriodP12GPIO_TypeDeft+0x50>
 			started = true;
- 8000e8a:	2301      	movs	r3, #1
- 8000e8c:	77bb      	strb	r3, [r7, #30]
+ 8000e86:	2301      	movs	r3, #1
+ 8000e88:	75bb      	strb	r3, [r7, #22]
 			t0 = __HAL_TIM_GET_COUNTER(&htim11);
- 8000e8e:	4b1d      	ldr	r3, [pc, #116]	; (8000f04 <_Z10calcPeriodP12GPIO_TypeDeft+0xc0>)
- 8000e90:	681b      	ldr	r3, [r3, #0]
- 8000e92:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8000e94:	61bb      	str	r3, [r7, #24]
- 8000e96:	e013      	b.n	8000ec0 <_Z10calcPeriodP12GPIO_TypeDeft+0x7c>
+ 8000e8a:	4b1d      	ldr	r3, [pc, #116]	; (8000f00 <_Z10calcPeriodP12GPIO_TypeDeft+0xbc>)
+ 8000e8c:	681b      	ldr	r3, [r3, #0]
+ 8000e8e:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8000e90:	613b      	str	r3, [r7, #16]
+ 8000e92:	e013      	b.n	8000ebc <_Z10calcPeriodP12GPIO_TypeDeft+0x78>
 		}else if(started && output==GPIO_PIN_SET && prev==0){
- 8000e98:	7fbb      	ldrb	r3, [r7, #30]
- 8000e9a:	2b00      	cmp	r3, #0
- 8000e9c:	d010      	beq.n	8000ec0 <_Z10calcPeriodP12GPIO_TypeDeft+0x7c>
- 8000e9e:	7bfb      	ldrb	r3, [r7, #15]
- 8000ea0:	2b01      	cmp	r3, #1
- 8000ea2:	d10d      	bne.n	8000ec0 <_Z10calcPeriodP12GPIO_TypeDeft+0x7c>
- 8000ea4:	7ffb      	ldrb	r3, [r7, #31]
- 8000ea6:	2b00      	cmp	r3, #0
- 8000ea8:	d10a      	bne.n	8000ec0 <_Z10calcPeriodP12GPIO_TypeDeft+0x7c>
+ 8000e94:	7dbb      	ldrb	r3, [r7, #22]
+ 8000e96:	2b00      	cmp	r3, #0
+ 8000e98:	d010      	beq.n	8000ebc <_Z10calcPeriodP12GPIO_TypeDeft+0x78>
+ 8000e9a:	7afb      	ldrb	r3, [r7, #11]
+ 8000e9c:	2b01      	cmp	r3, #1
+ 8000e9e:	d10d      	bne.n	8000ebc <_Z10calcPeriodP12GPIO_TypeDeft+0x78>
+ 8000ea0:	7dfb      	ldrb	r3, [r7, #23]
+ 8000ea2:	2b00      	cmp	r3, #0
+ 8000ea4:	d10a      	bne.n	8000ebc <_Z10calcPeriodP12GPIO_TypeDeft+0x78>
 			return calcTotalTime(__HAL_TIM_GET_COUNTER(&htim11), t0, MAX_TIME);
- 8000eaa:	4b16      	ldr	r3, [pc, #88]	; (8000f04 <_Z10calcPeriodP12GPIO_TypeDeft+0xc0>)
- 8000eac:	681b      	ldr	r3, [r3, #0]
- 8000eae:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8000eb0:	f64f 72ff 	movw	r2, #65535	; 0xffff
- 8000eb4:	69b9      	ldr	r1, [r7, #24]
- 8000eb6:	4618      	mov	r0, r3
- 8000eb8:	f7ff ffa8 	bl	8000e0c <_Z13calcTotalTimeiii>
- 8000ebc:	4603      	mov	r3, r0
- 8000ebe:	e01d      	b.n	8000efc <_Z10calcPeriodP12GPIO_TypeDeft+0xb8>
+ 8000ea6:	4b16      	ldr	r3, [pc, #88]	; (8000f00 <_Z10calcPeriodP12GPIO_TypeDeft+0xbc>)
+ 8000ea8:	681b      	ldr	r3, [r3, #0]
+ 8000eaa:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8000eac:	f64f 72ff 	movw	r2, #65535	; 0xffff
+ 8000eb0:	6939      	ldr	r1, [r7, #16]
+ 8000eb2:	4618      	mov	r0, r3
+ 8000eb4:	f7ff ffaa 	bl	8000e0c <_Z13calcTotalTimeiii>
+ 8000eb8:	4603      	mov	r3, r0
+ 8000eba:	e01d      	b.n	8000ef8 <_Z10calcPeriodP12GPIO_TypeDeft+0xb4>
 		}
 		prev = output;
- 8000ec0:	7bfb      	ldrb	r3, [r7, #15]
- 8000ec2:	77fb      	strb	r3, [r7, #31]
-	}while(calcTotalTime(__HAL_TIM_GET_COUNTER(&htim11), t0, MAX_TIME) < MAX_TIME || !started); //if counter
- 8000ec4:	4b0f      	ldr	r3, [pc, #60]	; (8000f04 <_Z10calcPeriodP12GPIO_TypeDeft+0xc0>)
- 8000ec6:	681b      	ldr	r3, [r3, #0]
- 8000ec8:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8000eca:	f64f 72ff 	movw	r2, #65535	; 0xffff
- 8000ece:	69b9      	ldr	r1, [r7, #24]
- 8000ed0:	4618      	mov	r0, r3
- 8000ed2:	f7ff ff9b 	bl	8000e0c <_Z13calcTotalTimeiii>
- 8000ed6:	4603      	mov	r3, r0
- 8000ed8:	f64f 72fe 	movw	r2, #65534	; 0xfffe
- 8000edc:	4293      	cmp	r3, r2
- 8000ede:	dd05      	ble.n	8000eec <_Z10calcPeriodP12GPIO_TypeDeft+0xa8>
- 8000ee0:	7fbb      	ldrb	r3, [r7, #30]
- 8000ee2:	f083 0301 	eor.w	r3, r3, #1
- 8000ee6:	b2db      	uxtb	r3, r3
- 8000ee8:	2b00      	cmp	r3, #0
- 8000eea:	d001      	beq.n	8000ef0 <_Z10calcPeriodP12GPIO_TypeDeft+0xac>
- 8000eec:	2301      	movs	r3, #1
- 8000eee:	e000      	b.n	8000ef2 <_Z10calcPeriodP12GPIO_TypeDeft+0xae>
- 8000ef0:	2300      	movs	r3, #0
- 8000ef2:	2b00      	cmp	r3, #0
- 8000ef4:	d000      	beq.n	8000ef8 <_Z10calcPeriodP12GPIO_TypeDeft+0xb4>
+ 8000ebc:	7afb      	ldrb	r3, [r7, #11]
+ 8000ebe:	75fb      	strb	r3, [r7, #23]
+	}while(calcTotalTime(__HAL_TIM_GET_COUNTER(&htim11), t0, MAX_TIME) < MAX_TIME || !started); //if we have started (encountered falling edge)
+ 8000ec0:	4b0f      	ldr	r3, [pc, #60]	; (8000f00 <_Z10calcPeriodP12GPIO_TypeDeft+0xbc>)
+ 8000ec2:	681b      	ldr	r3, [r3, #0]
+ 8000ec4:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8000ec6:	f64f 72ff 	movw	r2, #65535	; 0xffff
+ 8000eca:	6939      	ldr	r1, [r7, #16]
+ 8000ecc:	4618      	mov	r0, r3
+ 8000ece:	f7ff ff9d 	bl	8000e0c <_Z13calcTotalTimeiii>
+ 8000ed2:	4603      	mov	r3, r0
+ 8000ed4:	f64f 72fe 	movw	r2, #65534	; 0xfffe
+ 8000ed8:	4293      	cmp	r3, r2
+ 8000eda:	dd05      	ble.n	8000ee8 <_Z10calcPeriodP12GPIO_TypeDeft+0xa4>
+ 8000edc:	7dbb      	ldrb	r3, [r7, #22]
+ 8000ede:	f083 0301 	eor.w	r3, r3, #1
+ 8000ee2:	b2db      	uxtb	r3, r3
+ 8000ee4:	2b00      	cmp	r3, #0
+ 8000ee6:	d001      	beq.n	8000eec <_Z10calcPeriodP12GPIO_TypeDeft+0xa8>
+ 8000ee8:	2301      	movs	r3, #1
+ 8000eea:	e000      	b.n	8000eee <_Z10calcPeriodP12GPIO_TypeDeft+0xaa>
+ 8000eec:	2300      	movs	r3, #0
+ 8000eee:	2b00      	cmp	r3, #0
+ 8000ef0:	d000      	beq.n	8000ef4 <_Z10calcPeriodP12GPIO_TypeDeft+0xb0>
 	do{
- 8000ef6:	e7bb      	b.n	8000e70 <_Z10calcPeriodP12GPIO_TypeDeft+0x2c>
+ 8000ef2:	e7bb      	b.n	8000e6c <_Z10calcPeriodP12GPIO_TypeDeft+0x28>
 
-	return -1; //if timer counts beyond max val
- 8000ef8:	f04f 33ff 	mov.w	r3, #4294967295
+	return -1; //if timer counts beyond max val (shouldn't happen -> max val is 0.65535 sec and max freq of output is 2Hz which has half period (since we only measure half period - time when signal is continuously low within a period) of 0.25 sec)
+ 8000ef4:	f04f 33ff 	mov.w	r3, #4294967295
 }
- 8000efc:	4618      	mov	r0, r3
- 8000efe:	3720      	adds	r7, #32
- 8000f00:	46bd      	mov	sp, r7
- 8000f02:	bd80      	pop	{r7, pc}
- 8000f04:	2000008c 	.word	0x2000008c
+ 8000ef8:	4618      	mov	r0, r3
+ 8000efa:	3718      	adds	r7, #24
+ 8000efc:	46bd      	mov	sp, r7
+ 8000efe:	bd80      	pop	{r7, pc}
+ 8000f00:	2000008c 	.word	0x2000008c
 
-08000f08 <_ZSt3maxIiERKT_S2_S2_>:
+08000f04 <_ZSt3maxIiERKT_S2_S2_>:
    *  preprocessor macro.
   */
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     inline const _Tp&
     max(const _Tp& __a, const _Tp& __b)
- 8000f08:	b480      	push	{r7}
- 8000f0a:	b083      	sub	sp, #12
- 8000f0c:	af00      	add	r7, sp, #0
- 8000f0e:	6078      	str	r0, [r7, #4]
- 8000f10:	6039      	str	r1, [r7, #0]
+ 8000f04:	b480      	push	{r7}
+ 8000f06:	b083      	sub	sp, #12
+ 8000f08:	af00      	add	r7, sp, #0
+ 8000f0a:	6078      	str	r0, [r7, #4]
+ 8000f0c:	6039      	str	r1, [r7, #0]
     {
       // concept requirements
       __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
       //return  __a < __b ? __b : __a;
       if (__a < __b)
- 8000f12:	687b      	ldr	r3, [r7, #4]
- 8000f14:	681a      	ldr	r2, [r3, #0]
- 8000f16:	683b      	ldr	r3, [r7, #0]
- 8000f18:	681b      	ldr	r3, [r3, #0]
- 8000f1a:	429a      	cmp	r2, r3
- 8000f1c:	da01      	bge.n	8000f22 <_ZSt3maxIiERKT_S2_S2_+0x1a>
+ 8000f0e:	687b      	ldr	r3, [r7, #4]
+ 8000f10:	681a      	ldr	r2, [r3, #0]
+ 8000f12:	683b      	ldr	r3, [r7, #0]
+ 8000f14:	681b      	ldr	r3, [r3, #0]
+ 8000f16:	429a      	cmp	r2, r3
+ 8000f18:	da01      	bge.n	8000f1e <_ZSt3maxIiERKT_S2_S2_+0x1a>
 	return __b;
- 8000f1e:	683b      	ldr	r3, [r7, #0]
- 8000f20:	e000      	b.n	8000f24 <_ZSt3maxIiERKT_S2_S2_+0x1c>
+ 8000f1a:	683b      	ldr	r3, [r7, #0]
+ 8000f1c:	e000      	b.n	8000f20 <_ZSt3maxIiERKT_S2_S2_+0x1c>
       return __a;
- 8000f22:	687b      	ldr	r3, [r7, #4]
+ 8000f1e:	687b      	ldr	r3, [r7, #4]
     }
- 8000f24:	4618      	mov	r0, r3
- 8000f26:	370c      	adds	r7, #12
- 8000f28:	46bd      	mov	sp, r7
- 8000f2a:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8000f2e:	4770      	bx	lr
+ 8000f20:	4618      	mov	r0, r3
+ 8000f22:	370c      	adds	r7, #12
+ 8000f24:	46bd      	mov	sp, r7
+ 8000f26:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000f2a:	4770      	bx	lr
+ 8000f2c:	0000      	movs	r0, r0
+	...
 
 08000f30 <_Z14normalizeToRGBiii>:
 
@@ -1420,12 +1419,12 @@ Color normalizeToRGB(int r, int g, int b){
  8000f76:	f107 030c 	add.w	r3, r7, #12
  8000f7a:	4611      	mov	r1, r2
  8000f7c:	4618      	mov	r0, r3
- 8000f7e:	f7ff ffc3 	bl	8000f08 <_ZSt3maxIiERKT_S2_S2_>
+ 8000f7e:	f7ff ffc1 	bl	8000f04 <_ZSt3maxIiERKT_S2_S2_>
  8000f82:	4602      	mov	r2, r0
  8000f84:	1d3b      	adds	r3, r7, #4
  8000f86:	4619      	mov	r1, r3
  8000f88:	4610      	mov	r0, r2
- 8000f8a:	f7ff ffbd 	bl	8000f08 <_ZSt3maxIiERKT_S2_S2_>
+ 8000f8a:	f7ff ffbb 	bl	8000f04 <_ZSt3maxIiERKT_S2_S2_>
  8000f8e:	4603      	mov	r3, r0
  8000f90:	681b      	ldr	r3, [r3, #0]
  8000f92:	4618      	mov	r0, r3
@@ -1699,7 +1698,7 @@ int main(void) {
  80011b4:	4899      	ldr	r0, [pc, #612]	; (800141c <main+0x39c>)
  80011b6:	f001 f823 	bl	8002200 <HAL_GPIO_WritePin>
 
-	//0.00001sec per tick bc hclock is 80MHz - we use prescale factor of 800, so tim11 is 80MHz/800 = 100KHz -> period of tim11 = 1/100000Hz = 0.00001 sec
+	//0.00001sec per tick bc hclock is 80MHz - we use prescale factor of 800 (set below), so tim11 is 80MHz/800 = 100KHz -> period of tim11 = 1/100000Hz = 0.00001 sec -> therefore each count in 0.00001 sec
 	const double TIMER_PERIOD = 0.00001;
  80011ba:	a395      	add	r3, pc, #596	; (adr r3, 8001410 <main+0x390>)
  80011bc:	e9d3 2300 	ldrd	r2, r3, [r3]
