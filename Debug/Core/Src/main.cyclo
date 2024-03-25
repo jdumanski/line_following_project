@@ -1,22 +1,168 @@
+new:174:33:void* operator new(std::size_t, void*)	1
 gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
+std_abs.h:71:3:constexpr double std::abs(double)	1
 basic_string.h:6609:3:std::string std::__cxx11::to_string(int)	2
-main.cpp:78:2:Color::Color(uint8_t, uint8_t, uint8_t)	1
-main.cpp:84:6:void USART_Transmit(UART_HandleTypeDef*, uint8_t*)	2
-main.cpp:100:5:int calcTotalTime(int, int, int)	2
-main.cpp:108:5:int calcPeriod(GPIO_TypeDef*, uint16_t)	9
+stl_deque.h:96:3:constexpr std::size_t std::__deque_buf_size(std::size_t)	2
+main.cpp:86:2:Color::Color(int, int, int)	1
+main.cpp:87:9:double Color::getMagnitude()	1
+main.cpp:90:9:double Color::dotProduct(Color)	1
+main.cpp:93:9:double Color::cosineSimilarity(Color)	1
+main.cpp:98:6:void USART_Transmit(UART_HandleTypeDef*, uint8_t*)	2
+main.cpp:114:5:int calcTotalCount(int, int, int)	2
+main.cpp:123:5:int calcPeriod(GPIO_TypeDef*, uint16_t)	9
 stl_algobase.h:254:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = int]	2
-main.cpp:132:7:Color normalizeToRGB(int, int, int)	4
-main.cpp:143:5:int main()	1
-main.cpp:262:6:void SystemClock_Config()	3
-main.cpp:306:13:void MX_USART2_UART_Init()	2
-main.cpp:337:13:void MX_GPIO_Init()	1
-main.cpp:368:13:void MX_TIM11_Init()	2
-main.cpp:402:6:void Error_Handler()	1
+main.cpp:147:7:Color normalizeToRGB(int, int, int)	4
+main.cpp:158:8:double colorToDisplacement(Color, Color, Color)	3
+main.cpp:167:8:double differentiate(double, double, double, double)	1
+type_traits:62:17:constexpr std::integral_constant<_Tp, __v>::operator std::integral_constant<_Tp, __v>::value_type() const [with _Tp = bool; _Tp __v = true]	1
+main.cpp:172:7:Color extractColorFromSensor(std::vector<std::pair<GPIO_TypeDef*, short unsigned int> >, double)	1
+main.cpp:195:8:double calcError(Color, Color)	2
+main.cpp:202:8:double averageError(const std::deque<int>&, int)	3
+stl_pair.h:352:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = GPIO_TypeDef*; _U2 = short unsigned int; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = GPIO_TypeDef*; _T2 = short unsigned int]	1
+main.cpp:214:5:int main()	3
+main.cpp:591:6:void SystemClock_Config()	3
+main.cpp:635:13:void MX_USART2_UART_Init()	2
+main.cpp:666:13:void MX_GPIO_Init()	1
+main.cpp:697:13:void MX_TIM3_Init()	4
+main.cpp:737:13:void MX_TIM10_Init()	2
+main.cpp:763:13:void MX_TIM11_Init()	2
+main.cpp:797:6:void Error_Handler()	1
 charconv.h:47:5:constexpr unsigned int std::__detail::__to_chars_len(_Tp, int) [with _Tp = unsigned int]	5
 charconv.h:72:5:void std::__detail::__to_chars_10_impl(char*, unsigned int, _Tp) [with _Tp = unsigned int]	3
+cmath:475:5:constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::sqrt(_Tp) [with _Tp = int]	1
+stl_vector.h:1043:7:std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+stl_deque.h:1230:7:std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::size() const [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:1133:7:std::deque<_Tp, _Alloc>::const_iterator std::deque<_Tp, _Alloc>::begin() const [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:168:7:std::_Deque_iterator<_Tp, _Ref, _Ptr>::_Deque_iterator(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&) [with _Tp = int; _Ref = const int&; _Ptr = const int*]	1
+stl_deque.h:200:7:std::_Deque_iterator<_Tp, _Ref, _Ptr>::_Self std::_Deque_iterator<_Tp, _Ref, _Ptr>::operator++(int) [with _Tp = int; _Ref = const int&; _Ptr = const int*]	1
+stl_deque.h:180:7:std::_Deque_iterator<_Tp, _Ref, _Ptr>::reference std::_Deque_iterator<_Tp, _Ref, _Ptr>::operator*() const [with _Tp = int; _Ref = const int&; _Ptr = const int*]	1
+allocator.h:164:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = int]	1
+allocator.h:182:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = int]	1
+stl_deque.h:866:7:std::deque<_Tp, _Alloc>::deque(std::deque<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = GPIO_TypeDef*]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = short unsigned int]	1
+allocator.h:164:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+allocator.h:182:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_vector.h:625:7:std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+stl_vector.h:678:7:std::vector<_Tp, _Alloc>::~vector() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
 basic_string.h:6143:5:std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	1
 basic_string.h:6155:5:std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	1
-type_traits:62:17:constexpr std::integral_constant<_Tp, __v>::operator std::integral_constant<_Tp, __v>::value_type() const [with _Tp = bool; _Tp __v = true]	1
 basic_string.h:6121:5:std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	7
+stl_deque.h:1471:7:void std::deque<_Tp, _Alloc>::push_front(std::deque<_Tp, _Alloc>::value_type&&) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:1552:7:void std::deque<_Tp, _Alloc>::pop_back() [with _Tp = int; _Alloc = std::allocator<int>]	2
+stl_deque.h:353:7:std::_Deque_iterator<int, int&, int*>::difference_type std::operator-(const _Self&, const _Self&)	1
+stl_deque.h:164:8:std::_Deque_iterator<_Tp, _Ref, _Ptr>::_Deque_iterator(const _Iter&) [with _Iter = std::_Deque_iterator<int, int&, int*>; <template-parameter-2-2> = void; _Tp = int; _Ref = const int&; _Ptr = const int*]	1
+stl_deque.h:188:7:std::_Deque_iterator<_Tp, _Ref, _Ptr>::_Self& std::_Deque_iterator<_Tp, _Ref, _Ptr>::operator++() [with _Tp = int; _Ref = const int&; _Ptr = const int*]	2
+new_allocator.h:79:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = int]	1
+new_allocator.h:89:7:__gnu_cxx::new_allocator<_Tp>::~new_allocator() [with _Tp = int]	1
+stl_deque.h:1822:7:static std::size_t std::deque<_Tp, _Alloc>::_S_check_init_len(std::size_t, const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:442:7:std::_Deque_base<_Tp, _Alloc>::_Deque_base(const allocator_type&, std::size_t) [with _Tp = int; _Alloc = std::allocator<int>]	1
+deque.tcc:393:5:void std::deque<_Tp, _Alloc>::_M_fill_initialize(const value_type&) [with _Tp = int; _Alloc = std::allocator<int>]	2
+stl_deque.h:544:7:std::_Deque_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Deque_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = int; _Alloc = std::allocator<int>]	1
+new_allocator.h:79:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+new_allocator.h:89:7:__gnu_cxx::new_allocator<_Tp>::~new_allocator() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_vector.h:128:14:std::_Vector_base<std::pair<GPIO_TypeDef*, short unsigned int>, std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> > >::_Vector_impl::~_Vector_impl()	1
+stl_vector.h:293:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base(const allocator_type&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+stl_vector.h:333:7:std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+initializer_list:75:7:constexpr const _E* std::initializer_list<_E>::begin() const [with _E = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+initializer_list:79:7:constexpr const _E* std::initializer_list<_E>::end() const [with _E = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_vector.h:1577:2:void std::vector<_Tp, _Alloc>::_M_range_initialize(_ForwardIterator, _ForwardIterator, std::forward_iterator_tag) [with _ForwardIterator = const std::pair<GPIO_TypeDef*, short unsigned int>*; _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+stl_vector.h:276:7:std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+alloc_traits.h:735:5:void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = std::pair<GPIO_TypeDef*, short unsigned int>*; _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
 move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::__cxx11::basic_string<char>&]	1
 allocator.h:212:7:bool std::operator==(const std::allocator<char>&, const std::allocator<char>&)	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = int&]	1
+deque.tcc:140:7:) [with _Args = {int}; _Tp = int; _Alloc = std::allocator<int>]	2
+alloc_traits.h:527:2:static void std::allocator_traits<std::allocator<_CharT> >::destroy(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*) [with _Up = int; _Tp = int]	1
+deque.tcc:557:10:void std::deque<_Tp, _Alloc>::_M_pop_back_aux() [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:131:21:static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = int; _Ref = int&; _Ptr = int*]	1
+stl_deque.h:260:7:void std::_Deque_iterator<_Tp, _Ref, _Ptr>::_M_set_node(std::_Deque_iterator<_Tp, _Ref, _Ptr>::_Map_pointer) [with _Tp = int; _Ref = const int&; _Ptr = const int*]	1
+stl_deque.h:1831:7:static std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:526:2:std::_Deque_base<_Tp, _Alloc>::_Deque_impl::_Deque_impl(const _Tp_alloc_type&) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:614:5:void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:577:7:void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(std::_Deque_base<_Tp, _Alloc>::_Map_pointer, std::size_t) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:804:21:static std::size_t std::deque<_Tp, _Alloc>::_S_buffer_size() [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_uninitialized.h:372:5:void std::__uninitialized_fill_a(_ForwardIterator, _ForwardIterator, const _Tp&, std::allocator<_Tp>&) [with _ForwardIterator = int*; _Tp = int; _Tp2 = int]	1
+stl_vector.h:136:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl::_Vector_impl(const _Tp_alloc_type&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+stl_vector.h:350:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	2
+initializer_list:71:7:constexpr std::initializer_list<_E>::size_type std::initializer_list<_E>::size() const [with _E = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_iterator_base_funcs.h:138:5:typename std::iterator_traits< <template-parameter-1-1> >::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const std::pair<GPIO_TypeDef*, short unsigned int>*]	1
+stl_vector.h:1767:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_check_init_len(std::vector<_Tp, _Alloc>::size_type, const allocator_type&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+stl_vector.h:343:7:std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	2
+stl_uninitialized.h:323:5:_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = const std::pair<GPIO_TypeDef*, short unsigned int>*; _ForwardIterator = std::pair<GPIO_TypeDef*, short unsigned int>*; _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_construct.h:171:5:void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = std::pair<GPIO_TypeDef*, short unsigned int>*]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = int]	1
+alloc_traits.h:507:2:) [with _Up = int; _Args = {int}; _Tp = int]	1
+deque.tcc:520:7:) [with _Args = {int}; _Tp = int; _Alloc = std::allocator<int>]	1
+new_allocator.h:160:2:void __gnu_cxx::new_allocator<_Tp>::destroy(_Up*) [with _Up = int; _Tp = int]	1
+stl_deque.h:563:7:void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_node(std::_Deque_base<_Tp, _Alloc>::_Ptr) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:260:7:void std::_Deque_iterator<_Tp, _Ref, _Ptr>::_M_set_node(std::_Deque_iterator<_Tp, _Ref, _Ptr>::_Map_pointer) [with _Tp = int; _Ref = int&; _Ptr = int*]	1
+stl_deque.h:131:21:static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = int; _Ref = const int&; _Ptr = const int*]	1
+alloc_traits.h:543:7:static std::allocator_traits<std::allocator<_CharT> >::size_type std::allocator_traits<std::allocator<_CharT> >::max_size(const allocator_type&) [with _Tp = int]	1
+stl_algobase.h:230:5:constexpr const _Tp& std::min(const _Tp&, const _Tp&) [with _Tp = unsigned int]	2
+allocator.h:167:7:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator< <template-parameter-1-1> >&) [with _Tp = int]	1
+stl_deque.h:492:2:std::_Deque_base<_Tp, _Alloc>::_Deque_impl_data::_Deque_impl_data() [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_algobase.h:254:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = unsigned int]	2
+stl_deque.h:570:7:std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:653:5:void std::_Deque_base<_Tp, _Alloc>::_M_create_nodes(std::_Deque_base<_Tp, _Alloc>::_Map_pointer, std::_Deque_base<_Tp, _Alloc>::_Map_pointer) [with _Tp = int; _Alloc = std::allocator<int>]	2
+stl_deque.h:552:7:std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = int; _Alloc = std::allocator<int>]	1
+allocator.h:182:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = int*]	1
+alloc_traits.h:491:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = int*]	1
+stl_uninitialized.h:200:5:void std::uninitialized_fill(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = int*; _Tp = int]	1
+allocator.h:167:7:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator< <template-parameter-1-1> >&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_vector.h:97:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl_data::_Vector_impl_data() [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+alloc_traits.h:491:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_iterator_base_types.h:238:5:constexpr typename std::iterator_traits< <template-parameter-1-1> >::iterator_category std::__iterator_category(const _Iter&) [with _Iter = const std::pair<GPIO_TypeDef*, short unsigned int>*]	1
+stl_iterator_base_funcs.h:98:5:constexpr typename std::iterator_traits< <template-parameter-1-1> >::difference_type std::__distance(_RandomAccessIterator, _RandomAccessIterator, std::random_access_iterator_tag) [with _RandomAccessIterator = const std::pair<GPIO_TypeDef*, short unsigned int>*]	1
+stl_vector.h:1776:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Alloc = std::allocator<std::pair<GPIO_TypeDef*, short unsigned int> >]	1
+alloc_traits.h:459:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_uninitialized.h:125:5:_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = const std::pair<GPIO_TypeDef*, short unsigned int>*; _ForwardIterator = std::pair<GPIO_TypeDef*, short unsigned int>*]	1
+stl_construct.h:161:9:static void std::_Destroy_aux<true>::__destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = std::pair<GPIO_TypeDef*, short unsigned int>*]	1
+new_allocator.h:154:2:) [with _Up = int; _Args = {int}; _Tp = int]	1
+stl_deque.h:1235:7:std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::max_size() const [with _Tp = int; _Alloc = std::allocator<int>]	1
+stl_deque.h:2131:7:void std::deque<_Tp, _Alloc>::_M_reserve_map_at_front(std::deque<_Tp, _Alloc>::size_type) [with _Tp = int; _Alloc = std::allocator<int>]	2
+stl_deque.h:556:7:std::_Deque_base<_Tp, _Alloc>::_Ptr std::_Deque_base<_Tp, _Alloc>::_M_allocate_node() [with _Tp = int; _Alloc = std::allocator<int>]	1
+alloc_traits.h:491:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = int]	1
+new_allocator.h:148:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = int]	1
+new_allocator.h:82:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = int]	1
+stl_deque.h:151:7:std::_Deque_iterator<_Tp, _Ref, _Ptr>::_Deque_iterator() [with _Tp = int; _Ref = int&; _Ptr = int*]	1
+alloc_traits.h:459:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = int*]	1
+stl_deque.h:548:7:const _Tp_alloc_type& std::_Deque_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = int; _Alloc = std::allocator<int>]	1
+allocator.h:177:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Tp1>&) [with _Tp1 = int; _Tp = int*]	1
+new_allocator.h:89:7:__gnu_cxx::new_allocator<_Tp>::~new_allocator() [with _Tp = int*]	1
+new_allocator.h:126:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(_Tp*, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = int*]	1
+stl_uninitialized.h:182:9:static void std::__uninitialized_fill<true>::__uninit_fill(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = int*; _Tp = int]	1
+new_allocator.h:82:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+new_allocator.h:126:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(_Tp*, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+alloc_traits.h:543:7:static std::allocator_traits<std::allocator<_CharT> >::size_type std::allocator_traits<std::allocator<_CharT> >::max_size(const allocator_type&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+new_allocator.h:103:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_uninitialized.h:84:9:static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = const std::pair<GPIO_TypeDef*, short unsigned int>*; _ForwardIterator = std::pair<GPIO_TypeDef*, short unsigned int>*; bool _TrivialValueTypes = false]	2
+deque.tcc:928:5:void std::deque<_Tp, _Alloc>::_M_reallocate_map(std::deque<_Tp, _Alloc>::size_type, bool) [with _Tp = int; _Alloc = std::allocator<int>]	5
+alloc_traits.h:459:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = int]	1
+new_allocator.h:126:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(_Tp*, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = int]	1
+new_allocator.h:191:7:constexpr __gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::_M_max_size() const [with _Tp = int]	1
+new_allocator.h:103:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = int*]	1
+new_allocator.h:79:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = int*]	1
+stl_algobase.h:937:5:void std::fill(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = int*; _Tp = int]	1
+new_allocator.h:148:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+new_allocator.h:191:7:constexpr __gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::_M_max_size() const [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>]	1
+stl_construct.h:108:5:) [with _Tp = std::pair<GPIO_TypeDef*, short unsigned int>; _Args = {const std::pair<GPIO_TypeDef*, short unsigned int>&}]	1
+stl_algobase.h:560:5:_OI std::copy(_II, _II, _OI) [with _II = int**; _OI = int**]	1
+stl_algobase.h:797:5:_BI2 std::copy_backward(_BI1, _BI1, _BI2) [with _BI1 = int**; _BI2 = int**]	1
+new_allocator.h:103:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = int]	1
+new_allocator.h:191:7:constexpr __gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::_M_max_size() const [with _Tp = int*]	1
+stl_algobase.h:913:5:void std::__fill_a(_FIte, _FIte, const _Tp&) [with _FIte = int*; _Tp = int]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = const std::pair<GPIO_TypeDef*, short unsigned int>&]	1
+cpp_type_traits.h:544:5:_Iterator std::__miter_base(_Iterator) [with _Iterator = int**]	1
+stl_algobase.h:511:5:_OI std::__copy_move_a(_II, _II, _OI) [with bool _IsMove = false; _II = int**; _OI = int**]	1
+stl_algobase.h:745:5:_OI std::__copy_move_backward_a(_II, _II, _OI) [with bool _IsMove = false; _II = int**; _OI = int**]	1
+stl_algobase.h:868:5:typename __gnu_cxx::__enable_if<std::__is_scalar<_Tp>::__value, void>::__type std::__fill_a1(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = int*; _Tp = int]	2
+stl_algobase.h:313:5:_Iterator std::__niter_base(_Iterator) [with _Iterator = int**]	1
+stl_algobase.h:505:5:_OI std::__copy_move_a1(_II, _II, _OI) [with bool _IsMove = false; _II = int**; _OI = int**]	1
+stl_algobase.h:330:5:_Iterator std::__niter_wrap(const _Iterator&, _Iterator) [with _Iterator = int**]	1
+stl_algobase.h:717:5:_BI2 std::__copy_move_backward_a1(_BI1, _BI1, _BI2) [with bool _IsMove = false; _BI1 = int**; _BI2 = int**]	1
+stl_algobase.h:463:5:_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = int**; _OI = int**]	1
+stl_algobase.h:699:5:_BI2 std::__copy_move_backward_a2(_BI1, _BI1, _BI2) [with bool _IsMove = false; _BI1 = int**; _BI2 = int**]	1
+stl_algobase.h:415:2:static _Tp* std::__copy_move<_IsMove, true, std::random_access_iterator_tag>::__copy_m(const _Tp*, const _Tp*, _Tp*) [with _Tp = int*; bool _IsMove = false]	2
+stl_algobase.h:680:2:static _Tp* std::__copy_move_backward<_IsMove, true, std::random_access_iterator_tag>::__copy_move_b(const _Tp*, const _Tp*, _Tp*) [with _Tp = int*; bool _IsMove = false]	2
